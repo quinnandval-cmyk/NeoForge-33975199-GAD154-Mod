@@ -1,0 +1,11 @@
+{
+  "type": "dradonwingelytra:add_item",
+  "conditions": [
+    {
+      "condition": "neoforge:loot_table_id",
+      "loot_table_id": "minecraft:entities/enderman"
+    }
+  ],
+  "item": "dragonwingelytra:dragonscale",
+  "weight": 1
+}

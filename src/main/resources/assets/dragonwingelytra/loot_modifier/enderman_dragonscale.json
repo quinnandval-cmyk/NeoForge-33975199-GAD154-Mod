@@ -1,0 +1,10 @@
+{
+  "type": "dragonwingelytra:add_item",
+  "conditions": [
+    {
+      "condition": "minecraft:match_loot_table",
+      "loot_table": "minecraft:entities/enderman"
+    }
+  ],
+  "item": "dragonwingelytra:dragonscale"
+}

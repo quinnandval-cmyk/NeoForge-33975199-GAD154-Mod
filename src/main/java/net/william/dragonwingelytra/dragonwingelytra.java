@@ -1,9 +1,17 @@
 package net.william.dragonwingelytra;
 
 import net.minecraft.world.item.CreativeModeTabs;
+import net.neoforged.neoforge.common.loot.IGlobalLootModifier;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.william.dragonwingelytra.item.ModItems;
+import net.william.dragonwingelytra.loot.ModLootModifiers;
 import org.slf4j.Logger;
+import com.mojang.serialization.Codec;
+import net.neoforged.neoforge.registries.DeferredRegister;
+import net.neoforged.neoforge.registries.NeoForgeRegistries;
+import net.neoforged.bus.api.IEventBus;
+import net.neoforged.neoforge.registries.DeferredRegister;
+import net.neoforged.neoforge.registries.NeoForgeRegistries;
 
 import com.mojang.logging.LogUtils;
 
@@ -24,6 +32,8 @@ public class dragonwingelytra {
     // Directly reference a slf4j logger
     public static final Logger LOGGER = LogUtils.getLogger();
 
+
+
     // The constructor for the mod class is the first code that is run when your mod is loaded.
     // FML will recognize some parameter types like IEventBus or ModContainer and pass them in automatically.
     public dragonwingelytra(IEventBus modEventBus, ModContainer modContainer) {
@@ -36,8 +46,12 @@ public class dragonwingelytra {
         // Note that this is necessary if and only if we want *this* class (ExampleMod) to respond directly to events.
         // Do not add this line if there are no @SubscribeEvent-annotated functions in this class, like onServerStarting() below.
         NeoForge.EVENT_BUS.register(this);
-
+        NeoForge.EVENT_BUS.register(DragonDeathEventHandler.class);
         ModItems.register(modEventBus);
+
+        ModLootModifiers.register(modEventBus);
+
+
 
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
