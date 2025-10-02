@@ -11,9 +11,9 @@ import net.neoforged.neoforge.client.gui.ConfigurationScreen;
 import net.neoforged.neoforge.client.gui.IConfigScreenFactory;
 
 // This class will not load on dedicated servers. Accessing client side code from here is safe.
-@Mod(value = DragonWingElytra.MOD_ID, dist = Dist.CLIENT)
+@Mod(value = dragonwingelytra.MOD_ID, dist = Dist.CLIENT)
 // You can use EventBusSubscriber to automatically register all static methods in the class annotated with @SubscribeEvent
-@EventBusSubscriber(modid = DragonWingElytra.MOD_ID, value = Dist.CLIENT)
+@EventBusSubscriber(modid = dragonwingelytra.MOD_ID, value = Dist.CLIENT)
 public class ExampleModClient {
     public ExampleModClient(ModContainer container) {
         // Allows NeoForge to create a config screen for this mod's configs.
@@ -25,7 +25,7 @@ public class ExampleModClient {
     @SubscribeEvent
     static void onClientSetup(FMLClientSetupEvent event) {
         // Some client setup code
-        DragonWingElytra.LOGGER.info("HELLO FROM CLIENT SETUP");
-        DragonWingElytra.LOGGER.info("MINECRAFT NAME >> {}", Minecraft.getInstance().getUser().getName());
+        dragonwingelytra.LOGGER.info("HELLO FROM CLIENT SETUP");
+        dragonwingelytra.LOGGER.info("MINECRAFT NAME >> {}", Minecraft.getInstance().getUser().getName());
     }
 }
